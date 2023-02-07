@@ -7,6 +7,16 @@ module.exports = {
   create
 };
 
+
+//function show(req, res) {
+ // Flight.findById(req.params.id, function(err, flight) {
+  //  if(err) return res
+ // })
+
+
+//}
+
+
 function index(req, res) {
   Flights.find({}, function (err, flights) {
     res.render("flights/index", { flights, title: 'Flights' });
