@@ -8,37 +8,68 @@
     <li><span>Flight Number:</span> <%= flight.flightNo %></li>
     <li><span>Departs:</span> <%= flight.departs %></li>
     <% flight.destinations.forEach(e => { %>
-        <li>
-            <span>Arrival:</span>
-            <%= e.airport %>
-            -
-            <%= e.arrival %>
-        </li>
-             <% }) %>
-    </ul>
+    <li>
+      <span>Arrival:</span>
+      <%= e.airport %> - <%= e.arrival %>
+    </li>
+    <% }) %>
+  </ul>
 </div>
-    <h2>Add Destination</h2>
-    <form action="/flights/<%= flight._id %>/destinations" method="POST">
-      <label>Airport:
-        <select name="airport">
-            <option selected value="DEN">Denver</option>
-            <option value="LAX">Los Angeles</option>
-            <option value="SFQ">San Francisco</option>
-            <option value="FLL">Ft. Lauderdale</option>
-            <option value="MIA">Miami</option>
-            <option value="JFK">New York</option>
-            <option value="LGA">New York</option>
-            <option value="EWR">Newark</option>
-        </select> 
-        </label>
-        <br>
-        <label>Arrives:
-        <input type="datetime-local" name="arrival"> 
-        </label>
-        <br/>
-        
-      <input type="submit" value="Add Destination" class="add-dest-btn">
-    </form>
+<h2>Add Destination</h2>
+<form action="/flights/<%= flight._id %>/destinations" method="POST">
+  <label
+    >Airport:
+    <select name="airport">
+      <option selected value="DEN">Denver</option>
+      <option value="LAX">Los Angeles</option>
+      <option value="SFQ">San Francisco</option>
+      <option value="FLL">Ft. Lauderdale</option>
+      <option value="MIA">Miami</option>
+      <option value="JFK">New York</option>
+      <option value="LGA">New York</option>
+      <option value="EWR">Newark</option>
+    </select>
+  </label>
+  <br />
+  <label
+    >Arrives:
+    <input type="datetime-local" name="arrival" />
+  </label>
+  <br />
 
-  <%- include('../partials/footer') %>
+  <input type="submit" value="Add Destination" class="add-dest-btn" />
+</form>
 
+<div>
+  <form action="/flights/<%= flight._id %>/tickets" method="POST">
+    <label>
+      <input name="seat" required pattern="[A-F][1-9]\d?" />
+    </label>
+
+    <label>
+      <input type="text" name="seat" />
+    </label>
+    <input type="submit" value="Add Ticket" class="add-dest-btn" />
+  </form>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>seat</th>
+        <th>price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tickets.forEach(function(ticket) { %>
+        <tr>
+         <td> <%= ticket.seat %></td>
+         <td> <%= ticket.price %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../partials/footer') %>

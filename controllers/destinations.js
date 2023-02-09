@@ -2,7 +2,7 @@ const { model } = require('mongoose');
 const Flight = require('../models/flight');
 
 
-model.exports = {
+module.exports = {
     create,
 }
 
