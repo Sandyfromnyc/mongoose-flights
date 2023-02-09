@@ -6,8 +6,14 @@ body {
 
 a {
   color: #00B7FF;
+  display: inline;
+  padding: 25px;
 }
 nav {
   overflow: hidden;
   font-size: 25px;
+  text-align:  center;
+  
 }
+
+
