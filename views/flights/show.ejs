@@ -17,8 +17,7 @@
 </div>
 <h2>Add Destination</h2>
 <form action="/flights/<%= flight._id %>/destinations" method="POST">
-  <label
-    >Airport:
+  <label>Airport:
     <select name="airport">
       <option selected value="DEN">Denver</option>
       <option value="LAX">Los Angeles</option>
@@ -30,37 +29,31 @@
       <option value="EWR">Newark</option>
     </select>
   </label>
-  <br />
-  <label
-    >Arrives:
-    <input type="datetime-local" name="arrival" />
+  <br>
+  <br>
+  <label>Arrives:
+    <input type="datetime-local" name="arrival">
   </label>
-  <br />
-
-  <input type="submit" value="Add Destination" class="add-dest-btn" />
+  <br>
+<br>
+  <input type="submit" value="Add Destination" class="add-dest-btn">
 </form>
-
+<br>
 <div>
   <form action="/flights/<%= flight._id %>/tickets" method="POST">
-    <label>
-      <input name="seat" required pattern="[A-F][1-9]\d?" />
+    <label>seat
+      <input name="seat" required pattern="[A-F][1-9]\d?">
+      </label>
+      <label>price 
+      <input type="number" name="price">
+      </label>
+      <input type="submit" value="Add Ticket" class="add-ticket-btn">
     </label>
-
-    <label>
-      <input type="text" name="seat" />
-    </label>
-    <input type="submit" value="Add Ticket" class="add-dest-btn" />
   </form>
 </div>
 
 <div>
   <table>
-    <thead>
-      <tr>
-        <th>seat</th>
-        <th>price</th>
-      </tr>
-    </thead>
     <tbody>
       <% tickets.forEach(function(ticket) { %>
         <tr>

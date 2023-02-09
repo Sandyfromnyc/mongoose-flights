@@ -1,12 +1,13 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: bisque;
 }
 
 a {
   color: #00B7FF;
 }
-.topnav {
-  background-color: #333;
+nav {
   overflow: hidden;
+  font-size: 25px;
 }
